@@ -1,0 +1,19 @@
+#!/bin/bash
+#init file "lab 3"
+
+sudo apt-get update
+sudo apt-get -y install git
+sudo apt-get -y install python-pip
+sudo pip install flask
+sudo apt-get -y install cowsay
+
+
+sudo apt-get -y install python-virtualenv
+pip install celery
+sudo apt-get -y install rabbitmq-server
+
+mkdir ~/messaging
+
+echo "Init process has been completed"
+
+exit 0
