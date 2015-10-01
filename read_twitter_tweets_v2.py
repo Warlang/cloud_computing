@@ -4,10 +4,14 @@ import subprocess
 import sys
 
 #Attributes
-f = open('twitter_tweets.txt') #Open file stream
+fname = 'twitter_tweets.txt'
+f = open(fname) #Open file stream
 list_of_words = ['han','hon','den','det','denna','denne','hen'] #List of words to check for
 counters = {'han':0 , 'hon': 0, 'den':0, 'det':0, 'denna':0, 'denne':0, 'hen':0} #Count each words in 
 
+#Checks the lenght of a file!
+# _file= f.readlines()
+# print len(_file)
 
 #getText: Get the text from the file that is gonna be checked from n lines.
 #Arguements: n - N must be an positive integer. Higer number n give more text to check
@@ -44,21 +48,23 @@ def countWords(text):
 		n = text.count(word)
 		counters[word] = counters.get(word) + n
 
-
-#Main
-#What happens if you try to read more than exist in the file?
-text = getText(2000)
-countWords(text)
-result = json.dumps(counters)
-print result
+def main (): #XXX
+	#Main
+	#What happens if you try to read more than exist in the file?
+	#flenght = file_lenght(fname)
+	text = getText(2000)
+	countWords(text)
+	result = json.dumps(counters)
+	print result
 
 
 #REST API
 app = Flask(__name__)
 
 
-@app.route('/read_twitter_tweets_v2', methods=['GET'])
+@app.route('/result', methods=['GET'])
 def getCounters():
+	main()#XXX
     return result
 
 if __name__ == '__main__':
