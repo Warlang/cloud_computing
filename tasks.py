@@ -46,4 +46,14 @@ def getText(fname):
 			json_obj = json.loads(row)		
 			if (validText(json_obj)):
 				text = text + json_obj['text']
+		status()#Can remove this if program works
 	return text
+
+
+# --- PRINT STATUS HELPER ---
+status_helper = 0
+def status()
+	status_helper = status_helper + 1
+	if(status_helper > 5000):
+		status_helper = 0
+		print "5000 have been noticed"
