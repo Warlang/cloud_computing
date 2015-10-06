@@ -2,6 +2,7 @@ from flask import Flask
 import json
 import subprocess
 import sys
+import time
 
 #special for celery
 from celery import Celery
@@ -27,13 +28,13 @@ file_len = len(file_array)
 def start():
 	status = False
 
-	partDone = doPart().delay #If more than 1 core you need to do this into a while loop so you actully get correct result!
 	while (nr_cores != nr_splits):
 		doSplit()
 		status = doPart.delay(nr_splits)
 
 	while (status.ready() == False):
-		
+		time.sleep(1)
+
 
 
 
