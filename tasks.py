@@ -29,14 +29,16 @@ def validText(text):
 def countWords(text):
 	counters = {'han':0 , 'hon': 0, 'den':0, 'det':0, 'denna':0, 'denne':0, 'hen':0} #Count each words in
 	list_of_words = ['han','hon','den','det','denna','denne','hen'] #List of words to check for 
-	for word in list_of_words:
-		n = text.count(word)
-		counters[word] = counters.get(word) + n
+	for element in text
+		for word in list_of_words:
+			n = element.count(word)
+			counters[word] = counters.get(word) + n
 	return counters
 
 
 def getText(fname):
 	text = " "
+	text = []
 	skipRow = False
 	for row in urllib2.urlopen(fname):
 		if (skipRow):
@@ -45,7 +47,7 @@ def getText(fname):
 			skipRow = True
 			json_obj = json.loads(row)		
 			if (validText(json_obj)):
-				text = text + json_obj['text']
+				text.append(json_obj['text'])
 		status()#Can remove this if program works
 	return text
 
