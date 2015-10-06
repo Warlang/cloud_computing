@@ -3,6 +3,7 @@ import json
 import subprocess
 import sys
 import time
+import urllib2
 
 #special for celery
 from celery import Celery
@@ -11,6 +12,7 @@ app = Celery('tweets_read_v9', backend='amqp', broker='amqp://')
 #end of special
 
 #	--- Attributes ---
+# f = urllib2.urlopen("url")
 fname = 'tweets_16.txt'
 f = open(fname) #Open file stream
 list_of_words = ['han','hon','den','det','denna','denne','hen'] #List of words to check for
@@ -35,8 +37,8 @@ def start():
 @app.task
 def getStatus():
 	if(result == None):
-		return False
-	return True
+		return "False"
+	return "True"
 
 @app.task
 def getResult():
@@ -115,6 +117,8 @@ apps = Flask(__name__)
 
 @apps.route('/result', methods=['GET'])
 def getCounters():
+	if(result == None):
+		return "Ej klar"
 	return getResult()
 
 @apps.route('/start', methods=['GET'])
