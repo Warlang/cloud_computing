@@ -121,6 +121,7 @@ def getCounters():
 @apps.route('/start', methods=['GET'])
 def doStart():
 	start()
+	return "Starting calculation"
 
 @apps.route('/status', methods=['GET'])
 def doGetStatus():
