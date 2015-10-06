@@ -37,7 +37,6 @@ def countWords(text):
 
 
 def getText(fname):
-	text = " "
 	text = []
 	skipRow = False
 	for row in urllib2.urlopen(fname):
