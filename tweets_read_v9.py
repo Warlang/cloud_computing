@@ -26,12 +26,11 @@ file_len = len(file_array)
 #	--- Functions ---
 #start the counting
 def start():
-	status = False
-
+	print "Do I start?"
 	while (nr_cores != nr_splits):
 		doSplit()
-		status = doPart.delay(nr_splits)
-
+		doPart.delay(nr_splits)
+	return "Starting calculation"
 
 @app.task
 def getStatus():
@@ -119,9 +118,8 @@ def getCounters():
 	return getResult()
 
 @apps.route('/start', methods=['GET'])
-def doStart():
-	start()
-	return "Starting calculation"
+def doStart():	
+	return start()
 
 @apps.route('/status', methods=['GET'])
 def doGetStatus():
