@@ -34,7 +34,7 @@ def combineResults():
 
 	for element in parts_result:
 		for word in list_of_words:
-			counters[word] = counters.get(word) + element.get(word)
+			counters[word] = counters.get(word) + element.get().get(word)
 	global final_result
 	final_result = json.dumps(counters)
 	return final_result
