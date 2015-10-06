@@ -14,11 +14,11 @@ parts_result = []
 
 #	--- Functions ---
 def main():
-	num_files = 19
+	num_files = 0 #put this value to 19 later when 1 is working
 	url = "http://smog.uppmax.uu.se:8080/swift/v1/tweets/tweets_"
 	#loop 0-19 to queue tasks
 	for i in range(0, num_files+1):
-		part = oneFileCounts.delay(url + str(i))
+		part = oneFileCounts.delay(url + str(i) + ".txt")
 		parts_result.append(part)
 
 
