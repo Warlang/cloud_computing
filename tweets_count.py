@@ -29,7 +29,7 @@ def combineResults():
 	counters = {'han':0 , 'hon': 0, 'den':0, 'det':0, 'denna':0, 'denne':0, 'hen':0} #Count each words in
 	list_of_words = ['han','hon','den','det','denna','denne','hen'] #List of words to check for 
 	for element in parts_result:
-		if (element.ready() == False)
+		if (element.ready() == False):
 			return "Not done. Try again later."
 
 	for element in parts_result:
