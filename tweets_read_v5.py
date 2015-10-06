@@ -111,18 +111,18 @@ def countWords(text):
 
 
 #REST API
-app = Flask(__name__)
+apps = Flask(__name__)
 
 
-@app.route('/result', methods=['GET'])
+@apps.route('/result', methods=['GET'])
 def getCounters():
 	return getResult()
 
-@app.route('/start', methods=['GET'])
+@apps.route('/start', methods=['GET'])
 def doStart():
 	start()
 
-@app.route('/status', methods=['GET'])
+@apps.route('/status', methods=['GET'])
 def doGetStatus():
 	return getStatus()
 
