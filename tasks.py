@@ -52,7 +52,8 @@ def getText(fname):
 
 # --- PRINT STATUS HELPER ---
 status_helper = 0
-def status()
+def status():
+	global status_helper
 	status_helper = status_helper + 1
 	if(status_helper > 5000):
 		status_helper = 0
